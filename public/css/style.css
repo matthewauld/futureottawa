@@ -1,0 +1,32 @@
+#logo-container {
+  color:white;
+  font-size: 30px;
+}
+
+#snbutton {
+  display: none;
+}
+header, main, footer {
+  padding-left: 300px;
+}
+#mapid {
+  height: 180px;
+}
+.no-padding{
+  padding:0px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+  #snbutton {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+}
+
+#map { height: 1200px; }
