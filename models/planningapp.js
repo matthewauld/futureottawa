@@ -3,6 +3,7 @@ require('mongoose-double')(mongoose);
 
 var planningAppSchema = mongoose.Schema({
   "type": String,
+  "_id": mongoose.Schema.Types.ObjectId,
   "properties":{
     	"Application #":String,
       "Address":[String],
@@ -12,6 +13,7 @@ var planningAppSchema = mongoose.Schema({
       "Phone":String,
       "Supporting Documents": [String],
       "appid":String,
+      "Application": String,
       "councillor":String,
       "status":[[String,Date]],
       "ward_name": String,

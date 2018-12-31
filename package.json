@@ -21,6 +21,7 @@
     "mongoose": "^5.3.15",
     "mongoose-double": "0.0.1",
     "morgan": "^1.9.1",
+    "request": "^2.88.0",
     "winston": "^3.1.0"
   }
 }

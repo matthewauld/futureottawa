@@ -7,7 +7,7 @@ var mapdata = {
 var map = L.map('map',{zoomControl:false}).setView([45.4215, -75.6972], 13);
 //add and remove functions
 function wardPopup(layer){return layer.feature.properties.NAME;}
-function planningAppPopup(layer){return layer.feature.properties['Application #'];}
+function planningAppPopup(layer){console.log(layer.feature);return layer.feature.properties['Application #'];}
 
 //initalizers
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //init selectors
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
+
 
 
 
@@ -46,8 +47,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }
 
 
-function applyFilter(layername, filter_criteria){
-  if(mapdata[layerName].layer.options.filter === filter_criteria){
+function applyFilter(layerName, filter_criteria){
+  if(mapdata[layerName].layer && mapdata[layerName].layer.options.filter === filter_criteria){
     return
   }
   let data = mapdata[layerName].layer.toGeoJSON()
@@ -87,4 +88,20 @@ function toggleLayer(layerName){
     }
   }
   return false
+}
+
+function filter_applications(){
+  console.log(M.FormSelect.getInstance(document.getElementById("app_start_date")).getSelectedValues())
+  var start_date = new Date(M.FormSelect.getInstance(document.getElementById("app_start_date")).getSelectedValues()[0])
+  var end_date = new Date(M.FormSelect.getInstance(document.getElementById("app_end_date")).getSelectedValues()[0])
+  var app_type = M.FormSelect.getInstance(document.getElementById("app_type"))
+
+  var filter = function (app){
+    if(app.properties['Date Received'].getFullYear()>= start_date && app.properties['Date Received'].getFullYear()<=end_date && app_type.include(app.properties['Application']) ){
+      return true
+    }
+    return false
+  }
+  applyFilter('wards', filter)
+
 }

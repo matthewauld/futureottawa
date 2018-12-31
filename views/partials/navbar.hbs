@@ -20,8 +20,8 @@
           <div class="collapsible-body">
             <ul>
               <li><a href="#">
-                <div id="start_date " class="input-field">
-                  <select>
+                <div  class="input-field">
+                  <select onchange="filter_applications()" id="app_start_date">
                     <option value="2013">any</option>
                     <option value="2013">2013</option>
                     <option value="2014">2014</option>
@@ -36,8 +36,8 @@
               </a>
               </li>
               <li><a href="#">
-                <div id="start_date " class="input-field">
-                  <select>
+                <div  class="input-field">
+                  <select id="app_end_date" onchange="filter_applications()">
                     <option value="2019">any</option>
                     <option value="2013">2013</option>
                     <option value="2014">2014</option>
@@ -52,8 +52,8 @@
               </a>
               </li>
               <li><a href="#">
-                <div id="start_date " class="input-field valign-wrapper">
-                  <select multiple >
+                <div id="app_type" class="input-field">
+                  <select multiple onchange="filter_applications()" id="app_type" >
                     <option value="Demolition Control">Demolition Control</option>
                     <option value="Offical Plan Amendment">Offical Plan Amendment</option>
                     <option value="Ontario Heritage Act">Ontario Heritage Act</option>
