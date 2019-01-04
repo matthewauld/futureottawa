@@ -15,7 +15,7 @@ var planningAppSchema = mongoose.Schema({
       "appid":String,
       "Application": String,
       "councillor":String,
-      "status":[[String,Date]],
+      "status":[{"type":{type:String}, "date":{type:Date}}],
       "ward_name": String,
       "ward_num":String,
       "geometry":{
@@ -27,6 +27,10 @@ var planningAppSchema = mongoose.Schema({
 })
 
 var PlanningApp = module.exports=mongoose.model('PlanningApp',planningAppSchema)
-module.exports.getAllPlanningApps = function(callback){
-  PlanningApp.find(callback)
-}
+
+module.exports.getAllPlanningApps = PlanningApp.find()
+
+
+module.exports.getStatusTypes = PlanningApp.distinct('properties.status.type')
+
+module.exports.getAppTypes = PlanningApp.distinct('properties.Application')

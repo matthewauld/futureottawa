@@ -17,7 +17,6 @@ var mongoose          = require('mongoose')
 mongoose.connect('mongodb://localhost/futureottawa')
 
 //ROUTES
-var index = require('./routes/index')
 var map = require('./routes/map')
 
 
@@ -64,7 +63,6 @@ app.use(expressValidator({
   }
 }));
 
-app.use('/', index);
-app.use('/map',map)
+app.use('/',map)
 
 module.exports = app;

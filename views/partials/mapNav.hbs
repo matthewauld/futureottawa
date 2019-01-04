@@ -1,0 +1,63 @@
+<header>
+<a id="snbutton" data-target="interface" class="sidenav-trigger btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">menu</i></a>
+
+
+  <ul id="interface" class="sidenav sidenav-fixed" style="transform: translateX(0%);">
+    <li class="logo">
+      <a href="/" id = "logo-container" class="z-depth-1 brand-logo blue">futureOttawa</a>
+    </li>
+    <li class="search">
+      <div class="search-wrapper">
+          <input id="search" placeholder="Search">
+          <div class="search-results"></div>
+      </div>
+    </li>
+    <li><a href=# class="waves-effect collapsible-header" id="show_wards"><input id="show_wards_check" type="checkbox"/><span>Wards</span><i class=" right material-icons">layers</i></a></li>
+    <li>
+      <ul class="collapsible collapsible-accordion">
+        <li><a href=# class="collapsible-header waves-effect" id="show_planningApps"><input id="show_planningApps_check" type="checkbox"/><span>Planning Applications</span><i class=" right material-icons">place</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#">
+                <div class="input-field">
+                  <input type="text" class="datepicker" id="app_start_date">
+                  <label>Year From</label>
+                </div>
+              </a>
+              </li>
+              <li><a href="#">
+                <div class="input-field">
+                  <input type="text" class="datepicker" id="app_end_date">
+                  <label>Year To</label>
+                </div>
+              </a>
+              </li>
+              <li><a href="#">
+                <div class="input-field">
+                  <select multiple onchange="filterApplications()" id="app_type" >
+                  </select>
+                  <label>Application Type</label>
+                </div>
+              </a>
+              </li>
+              <li><a href="#">
+                <div class="input-field">
+                  <select multiple onchange="filterApplications()" id="app_status" >
+                  </select>
+                  <label>Latest Status</label>
+                </div>
+              </a>
+              </li>
+
+
+            </ul>
+          </div>
+        </li>
+        <li><a href="/about" class="waves-effect">About</a></li>
+
+      </ul>
+    </li>
+
+  </ul>
+
+</header>
