@@ -46,4 +46,16 @@
       <th>File Lead Phone</th>
       <td>{{Phone}}</td>
     </tr>
+    <tr>
+      <th>Supporting Documents</th>
+      <td>{{#each [Supporting Documents]}}
+
+      <div><a href="{{link}}">{{filename}}</a></div>
+      {{/each}}</td>
+    </tr>
+    <tr>
+
+    </tr>
   </table>
+  <div class="row"><a href="https://app01.ottawa.ca/postingplans/appDetails.jsf?lang=en&appId=__{{appid}}">View on City of Ottawa website</a></div>
+</div>

@@ -11,7 +11,7 @@ var planningAppSchema = mongoose.Schema({
       "Description": String,
       "Name": String,
       "Phone":String,
-      "Supporting Documents": [String],
+      "Supporting Documents": [{"filename": {type:String}, "link": {type:String}}],
       "appid":String,
       "Application": String,
       "councillor":String,

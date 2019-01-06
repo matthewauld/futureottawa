@@ -20,17 +20,13 @@ for app in x:
 set_fields = ['ward_num','Date Received','ward_name','councillor','Application','Application #', 'Address', 'Description', 'Name', 'Phone','appid',]
 
 # update these sets
-push_fields = ['status','Supporting Documents']
 for app in x:
     set = {'geometry.coordinates':app['geometry']['coordinates'],'geometry.type':app['geometry']['type'],'type':app['type']}
-    push = {}
     for field in set_fields:
         set['properties.'+field] = app['properties'][field]
-    for field in push_fields:
-        push['properties.'+field] = app['properties'][field]
 
     apps.update_one({"properties.Application #":app['properties']['Application #']},{
     '$set': set,
-    '$addToSet':push,
+    '$addToSet':{'properties.status':app['properties']['status'], 'properties.Supporting Documents':{'$each': app['properties']['Supporting Documents']}}
 
     },upsert=True)
