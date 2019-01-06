@@ -10,7 +10,7 @@ var map = L.map('map',{zoomControl:false}).setView([45.4215, -75.6972], 13);
 function wardPopup(layer){
   return makePopup(layer.feature.properties, {'title':layer.feature.properties['WARD_NAME_'], 'fields':{"Number":"WARD_NUM","Councillor":"COUNCILLOR"}} )}
 function planningAppPopup(layer){
-  return makePopup(layer.feature.properties,{'title':layer.feature.properties['Application #'], link: layer.feature._id, fields:{"Description":"Description","Address":"Address","Type":"Application","Date Received":"Date Received","Status":"status"}})
+  return makePopup(layer.feature.properties,{'title':layer.feature.properties['Application #'], link: "/data/planningapplication/"+layer.feature._id, fields:{"Description":"Description","Address":"Address","Type":"Application","Date Received":"Date Received","Status":"status"}})
 }
 
 
@@ -164,7 +164,6 @@ function makePopup(object, mapping){
 }
 
 function makeDOM(data){
-  console.log(data instanceof Date)
   var result = ''
   if(Array.isArray(data)){
     for(let element of data){

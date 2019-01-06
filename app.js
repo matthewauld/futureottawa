@@ -18,11 +18,12 @@ mongoose.connect('mongodb://localhost/futureottawa')
 
 //ROUTES
 var map = require('./routes/map')
-
+var data = require('./routes/data')
 
 //Date handler
 MomentHandler.registerHelpers(Handlebars)
 
+//main app
 var app = express()
 
 //STATIC AND ENGINES
@@ -64,5 +65,6 @@ app.use(expressValidator({
 }));
 
 app.use('/',map)
+app.use('/data',data)
 
 module.exports = app;

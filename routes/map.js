@@ -1,7 +1,7 @@
 var express       = require('express');
 var router        = express.Router();
 var Ward          = require('../models/ward')
-var PlanningApp          = require('../models/planningapp')
+var PlanningApp   = require('../models/planningapp')
 var logger        = require('../config/winston')
 
 router.get('/', function(req, res, next){

@@ -1,0 +1,49 @@
+{{>textNav}}
+<div class="container">
+  <h3>{{"Application #"}}</h3>
+
+  <table>
+    <tr>
+      <th>Description</th>
+      <td>{{Description}}</td>
+    </tr>
+    <tr>
+      <th>Application Type</th>
+      <td>{{Application}}</td>
+    </tr>
+    <tr>
+      <th>Date Submitted</th>
+      <td>{{moment [Date Received] "YYYY-MM-DD"}}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>{{#each Address}}
+        <div>{{this}}</div>
+      {{/each}}</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td>{{#each status}}
+      <div>{{moment date "YYYY-MM-DD"}} - {{type}}</div>
+      {{/each}}</td>
+    </tr>
+    <tr>
+      <th>City Staff</tr>
+    </tr>
+    <tr>
+      <th>Ward</th>
+      <td>{{ward_name}}</td>
+    </tr>
+    <tr>
+      <th>Councillor</th>
+      <td>{{councillor}}</td>
+    </tr>
+    <tr>
+      <th>File Lead</th>
+      <td>{{Name}}</td>
+    </tr>
+    <tr>
+      <th>File Lead Phone</th>
+      <td>{{Phone}}</td>
+    </tr>
+  </table>
