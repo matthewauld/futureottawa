@@ -46,4 +46,10 @@
       <th>File Lead Phone</th>
       <td>{{Phone}}</td>
     </tr>
+    <tr>
+      <th>Supporting Documents</th>
+      <td>{{#each status}}
+      <div>{{moment date "YYYY-MM-DD"}} - {{type}}</div>
+      {{/each}}</td>
+    </tr>
   </table>
