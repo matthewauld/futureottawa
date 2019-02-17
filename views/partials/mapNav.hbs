@@ -7,43 +7,9 @@
     </li>
     <li><a href=# class="waves-effect collapsible-header" id="show_wards"><input id="show_wards_check" type="checkbox"/><span>Wards</span><i class=" right material-icons">layers</i></a></li>
     <li>
-      <ul class="collapsible collapsible-accordion">
+      <ul class="collapsible collapsible-accordion" id="planningAppsCollapser">
         <li><a href=# class="collapsible-header waves-effect" id="show_planningApps"><input id="show_planningApps_check" type="checkbox"/><span>Planning Applications</span><i class=" right material-icons">place</i></a>
-          <div class="collapsible-body">
-            <ul>
-              <li><a href="#">
-                <div class="input-field">
-                  <input type="text" class="datepicker" id="app_start_date">
-                  <label>Year From</label>
-                </div>
-              </a>
-              </li>
-              <li><a href="#">
-                <div class="input-field">
-                  <input type="text" class="datepicker" id="app_end_date">
-                  <label>Year To</label>
-                </div>
-              </a>
-              </li>
-              <li><a href="#">
-                <div class="input-field">
-                  <select multiple onchange="filterApplications()" id="app_type" >
-                  </select>
-                  <label>Application Type</label>
-                </div>
-              </a>
-              </li>
-              <li><a href="#">
-                <div class="input-field">
-                  <select multiple onchange="filterApplications()" id="app_status" >
-                  </select>
-                  <label>Latest Status</label>
-                </div>
-              </a>
-              </li>
-
-
-            </ul>
+          <div class="collapsible-body"id="planningAppsSelector">
           </div>
         </li>
       </ul>

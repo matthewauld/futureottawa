@@ -17,14 +17,15 @@ for app in x:
     scraped.update_one(app,{'$setOnInsert':{'retrieved':now}},upsert=True)
 
 # update these unique values
-set_fields = ['ward_num','Date Received','ward_name','councillor','Application','Application #', 'Address', 'Description', 'Name', 'Phone','appid',]
+set_fields = ['ward_num','Date Received','ward_name','councillor','Application','Application #', 'Address', 'Description', 'Name', 'Phone','appid']
 
 # update these sets
 for app in x:
     set = {'geometry.coordinates':app['geometry']['coordinates'],'geometry.type':app['geometry']['type'],'type':app['type']}
     for field in set_fields:
         set['properties.'+field] = app['properties'][field]
-
+    # maintain latest status
+    set['properties.latest_status'] =  app['properties']['status']['type']
     apps.update_one({"properties.Application #":app['properties']['Application #']},{
     '$set': set,
     '$addToSet':{'properties.status':app['properties']['status'], 'properties.Supporting Documents':{'$each': app['properties']['Supporting Documents']}}
