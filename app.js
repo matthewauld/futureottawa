@@ -1,7 +1,6 @@
 var express           = require('express')
 var path              = require('path')
 var winston           = require("./config/winston");
-
 var morgan            = require('morgan')
 var cookieParser      = require('cookie-parser')
 var bodyParser        = require('body-parser')
@@ -13,8 +12,8 @@ var session           = require('express-session');
 var MongoStore        = require('connect-mongo')(session)
 var mongoose          = require('mongoose')
 
-
-mongoose.connect('mongodb://localhost/futureottawa')
+var mongo_uri = process.env.MONGO_URI || 'mongodb://localhost'
+mongoose.connect(mongo_uri + '/futureottawa')
 
 //ROUTES
 var map = require('./routes/map')
