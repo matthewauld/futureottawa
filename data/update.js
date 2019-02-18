@@ -1,6 +1,6 @@
 var request = require('request');
 var Ward    = require('../models/ward')
-var logger  = require('./winston')
+var logger  = require('../config/winston')
 var mongoose          = require('mongoose')
 
 
