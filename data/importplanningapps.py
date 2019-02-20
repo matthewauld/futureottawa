@@ -1,11 +1,12 @@
 from devappscraper import *
 import datetime
 import pymongo
-
+import os
 def process_search(url, delay):
     x = get_applist(url, delay)['features']
-
-    client = pymongo.MongoClient("mongodb://localhost:27017")
+    uri = os.environ['MONGO_ADMIN_URI']
+    print(uri)
+    client = pymongo.MongoClient(uri+'/')
 
     db = client['futureottawa']
 

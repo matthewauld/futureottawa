@@ -3,8 +3,8 @@ var Ward    = require('../models/ward')
 var logger  = require('../config/winston')
 var mongoose          = require('mongoose')
 
-
-mongoose.connect('mongodb://localhost/futureottawa')
+var uri = process.env.MONGO_URI
+mongoose.connect(uri+'/futureottawa')
 
 
 function updateWards(){
@@ -19,7 +19,7 @@ function updateWards(){
       Ward.update({"properties.WARD_NUMBE":w.properties.WARD_NUMBE},w,{upsert: true},function(error,r){
         console.log(r)
         if(error){
-          logger.error(e)
+          logger.error(error)
         }
       })
     }
